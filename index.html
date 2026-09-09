@@ -240,6 +240,81 @@
     opacity: 0.95;
   }
 
+  /* Temporary stand-in for the older Jupitron logo treatment. */
+  .legacy-mark{
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: min(176px, 42vw);
+    padding: 7px 8px 6px;
+    background: var(--paper);
+    color: var(--ink);
+    border-top: 2px solid var(--accent);
+    border-bottom: 2px solid var(--accent);
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, -50%) scale(.78);
+    transform-origin: center;
+    filter: contrast(1.15);
+  }
+
+  .legacy-wordmark{
+    flex: 1;
+    font-family: Impact, 'Arial Narrow', 'Inter', sans-serif;
+    font-size: clamp(.78rem, 3.2vw, 1.14rem);
+    font-weight: 800;
+    letter-spacing: .02em;
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  .legacy-bars{
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    width: 22px;
+    flex: 0 0 22px;
+  }
+
+  .legacy-bars i{
+    display: block;
+    height: 3px;
+    background: var(--accent);
+  }
+
+  .legacy-bars i:nth-child(2){ width: 18px; margin-left: 4px; }
+  .legacy-bars i:nth-child(3){ width: 14px; margin-left: 8px; }
+  .legacy-bars i:nth-child(4){ width: 10px; margin-left: 12px; }
+
+  .signature-wrap.logo-swap .signature-mark{
+    animation: signature-logo-swap .54s steps(5, end);
+  }
+
+  .signature-wrap.logo-swap .legacy-mark{
+    animation: legacy-logo-swap .54s steps(5, end);
+  }
+
+  @keyframes signature-logo-swap{
+    0%{ opacity: .95; transform: translate(0, 0); filter: none; }
+    18%{ opacity: .62; transform: translate(-2px, 0); filter: drop-shadow(3px 0 0 rgba(255,42,90,.55)); }
+    36%{ opacity: .08; transform: translate(3px, -1px) skewX(-4deg); filter: drop-shadow(-3px 0 0 rgba(56,220,230,.55)); }
+    56%{ opacity: .1; transform: translate(-2px, 1px) skewX(4deg); filter: drop-shadow(2px 0 0 rgba(255,42,90,.45)); }
+    76%{ opacity: .68; transform: translate(2px, 0); filter: drop-shadow(-2px 0 0 rgba(56,220,230,.4)); }
+    100%{ opacity: .95; transform: translate(0, 0); filter: none; }
+  }
+
+  @keyframes legacy-logo-swap{
+    0%, 26%{ opacity: 0; transform: translate(-50%, -50%) scale(.78) skewX(0); }
+    38%{ opacity: .94; transform: translate(-50%, -50%) scale(1.02) skewX(-4deg); }
+    54%{ opacity: .82; transform: translate(calc(-50% + 3px), -50%) scale(1) skewX(3deg); }
+    68%{ opacity: .94; transform: translate(calc(-50% - 2px), -50%) scale(1.01) skewX(-2deg); }
+    84%, 100%{ opacity: 0; transform: translate(-50%, -50%) scale(.9) skewX(0); }
+  }
+
   .glitch-bg{
     position: absolute;
     z-index: 0;
@@ -1006,6 +1081,10 @@
   <span class="signature-wrap">
     <span class="glitch-bg" aria-hidden="true"></span>
     <img class="signature-mark" src="data:image/png;base64,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" alt="Firma de Jupitron">
+    <span class="legacy-mark" aria-hidden="true">
+      <span class="legacy-wordmark">JUPITRON</span>
+      <span class="legacy-bars"><i></i><i></i><i></i><i></i></span>
+    </span>
     <span class="signature-shine" aria-hidden="true"></span>
   </span>
 
@@ -1031,12 +1110,12 @@
   </nav>
 </header>
 
-<p class="site-version" id="site-version" aria-hidden="true">v1.0</p>
+<p class="site-version" id="site-version" aria-hidden="true">v1.001</p>
 
 <main class="wrap">
 
   <div class="about reveal">
-    <div data-i18n-html="about_bio"><p>Hijo adoptivo de la era <span class="kw">arcade</span>, <span class="jp-glitch">Jupitron</span> lleva más de una década desarrollando juegos arcade en solitario desde <span class="kw">Buenos Aires</span>. Su producción abarca <span class="kw">más de 100 títulos</span> y recorre géneros y mecánicas tan diversos como plataformeros de precisión, pruebas de reflejos y aventuras con física de pinball, siempre con una marcada inclinación hacia la <span class="kw">experimentación</span>.</p><p>Además de su prolífica obra, <span class="jp-glitch">Jupitron</span> se caracteriza por abordar de manera integral todas las áreas de la realización de un videojuego: <span class="kw">gameplay, gráficos, sonidos y música</span>. Esa combinación de oficio, experimentación y autonomía le imprime a sus juegos una <span class="kw">identidad propia</span>, con una <span class="kw">originalidad</span> difícil de igualar dentro de la escena arcade independiente.</p><p>Su trabajo más reciente, <span class="kw">Power Solenoid</span>, lleva ese mismo espíritu de «instalar y jugar» a una aventura cósmica de mayor escala y duración, ampliando el alcance de una obra que continúa creciendo sin perder su esencia arcade.</p></div>
+    <div data-i18n-html="about_bio"><p>Hijo adoptivo de la era <span class="kw">arcade</span>, <span class="jp-glitch">Jupitron</span> lleva más de una década haciendo juegos desde <span class="kw">Buenos Aires</span>. El catálogo ya reúne <span class="kw">más de 100 títulos</span>: plataformas, pruebas de reflejos, aventuras con física de pinball y otras ideas que encuentran su forma a través de la <span class="kw">experimentación</span>.</p><p>Estos juegos fueron tomando forma a lo largo de los años junto a muchas personas talentosas, mezclando <span class="kw">gameplay, arte, sonido y música</span> en cada proyecto. <span class="kw">Power Solenoid</span> es la aventura más reciente: un viaje cósmico más grande sin perder el espíritu de «instalar y jugar». Los créditos de cada juego cuentan la historia completa.</p></div>
     <div>
       <p class="works-label" data-i18n="works_label">Trabajos seleccionados</p>
       <ul class="works-list">
@@ -1249,7 +1328,7 @@
       htmlLang: 'es-AR',
       eyebrow_hero: 'Desarrollador de Videojuegos — Buenos Aires, Argentina',
       tagline: 'Videojuegos para siempre.',
-      about_bio: '<p>Hijo adoptivo de la era <span class="kw">arcade</span>, <span class="jp-glitch">Jupitron</span> lleva más de una década desarrollando juegos arcade en solitario desde <span class="kw">Buenos Aires</span>. Su producción abarca <span class="kw">más de 100 títulos</span> y recorre géneros y mecánicas tan diversos como plataformeros de precisión, pruebas de reflejos y aventuras con física de pinball, siempre con una marcada inclinación hacia la <span class="kw">experimentación</span>.</p><p>Además de su prolífica obra, <span class="jp-glitch">Jupitron</span> se caracteriza por abordar de manera integral todas las áreas de la realización de un videojuego: <span class="kw">gameplay, gráficos, sonidos y música</span>. Esa combinación de oficio, experimentación y autonomía le imprime a sus juegos una <span class="kw">identidad propia</span>, con una <span class="kw">originalidad</span> difícil de igualar dentro de la escena arcade independiente.</p><p>Su trabajo más reciente, <span class="kw">Power Solenoid</span>, lleva ese mismo espíritu de «instalar y jugar» a una aventura cósmica de mayor escala y duración, ampliando el alcance de una obra que continúa creciendo sin perder su esencia arcade.</p>',
+      about_bio: '<p>Hijo adoptivo de la era <span class="kw">arcade</span>, <span class="jp-glitch">Jupitron</span> lleva más de una década haciendo juegos desde <span class="kw">Buenos Aires</span>. El catálogo ya reúne <span class="kw">más de 100 títulos</span>: plataformas, pruebas de reflejos, aventuras con física de pinball y otras ideas que encuentran su forma a través de la <span class="kw">experimentación</span>.</p><p>Estos juegos fueron tomando forma a lo largo de los años junto a muchas personas talentosas, mezclando <span class="kw">gameplay, arte, sonido y música</span> en cada proyecto. <span class="kw">Power Solenoid</span> es la aventura más reciente: un viaje cósmico más grande sin perder el espíritu de «instalar y jugar». Los créditos de cada juego cuentan la historia completa.</p>',
       works_label: 'Trabajos seleccionados',
       work_fighting: 'Lucha',
       work_platformer: 'Plataformas',
@@ -1287,7 +1366,7 @@
       htmlLang: 'pt-BR',
       eyebrow_hero: 'Desenvolvedor de Jogos — Buenos Aires, Argentina',
       tagline: 'Jogos para sempre.',
-      about_bio: '<p>Filho adotivo da era <span class="kw">arcade</span>, a <span class="jp-glitch">Jupitron</span> passou mais de uma década desenvolvendo jogos arcade sozinha, direto de <span class="kw">Buenos Aires</span>. Sua produção reúne <span class="kw">mais de 100 títulos</span> e percorre gêneros e mecânicas tão diversos quanto plataformas de precisão, testes de reflexo e aventuras com física de pinball, sempre com uma forte inclinação para a <span class="kw">experimentação</span>.</p><p>Além da produção prolífica, a <span class="jp-glitch">Jupitron</span> se destaca por cuidar de todas as áreas da criação de um jogo: <span class="kw">gameplay, arte, som e música</span>. Essa combinação de ofício, experimentação e autonomia dá aos jogos uma <span class="kw">identidade própria</span>, com uma <span class="kw">originalidade</span> difícil de igualar dentro da cena arcade independente.</p><p>Seu trabalho mais recente, <span class="kw">Power Solenoid</span>, leva esse mesmo espírito de \u201cinstalar e jogar\u201d para uma aventura cósmica de maior escala e duração, ampliando o alcance de uma obra que continua crescendo sem perder sua essência arcade.</p>',
+      about_bio: '<p>Filha adotiva da era <span class="kw">arcade</span>, a <span class="jp-glitch">Jupitron</span> faz jogos há mais de uma década, direto de <span class="kw">Buenos Aires</span>. O catálogo já reúne <span class="kw">mais de 100 títulos</span>: plataformas, testes de reflexo, aventuras com física de pinball e outras ideias que ganham forma pela <span class="kw">experimentação</span>.</p><p>Esses jogos foram tomando forma ao longo dos anos com muitas pessoas talentosas, misturando <span class="kw">gameplay, arte, som e música</span> em cada projeto. <span class="kw">Power Solenoid</span> é a aventura mais recente: uma viagem cósmica maior sem perder o espírito de \u201cinstalar e jogar\u201d. Os créditos de cada jogo contam a história completa.</p>',
       works_label: 'Trabalhos selecionados',
       work_fighting: 'Luta',
       work_platformer: 'Plataforma',
@@ -1325,7 +1404,7 @@
       htmlLang: 'en',
       eyebrow_hero: 'Game Developer — Buenos Aires, Argentina',
       tagline: 'Video games forever.',
-      about_bio: '<p>A foster child of the <span class="kw">arcade</span> era, <span class="jp-glitch">Jupitron</span> has spent well over a decade developing arcade games solo from <span class="kw">Buenos Aires</span>. The catalog spans <span class="kw">more than 100 titles</span> across genres and mechanics as varied as precision platformers, reflex tests, and pinball-physics adventures, always with a strong pull toward <span class="kw">experimentation</span>.</p><p>Beyond the sheer output, <span class="jp-glitch">Jupitron</span> is known for handling every area of a game\u2019s creation in-house: <span class="kw">gameplay, art, sound, and music</span>. That mix of craft, experimentation, and independence gives the games a <span class="kw">distinct identity</span> \u2014 an <span class="kw">originality</span> that\u2019s hard to match within the independent arcade scene.</p><p>The most recent work, <span class="kw">Power Solenoid</span>, carries that same install-and-play spirit into a cosmic adventure of greater scale and length, expanding the reach of a body of work that keeps growing without losing its arcade core.</p>',
+      about_bio: '<p>A child of the <span class="kw">arcade</span> era, <span class="jp-glitch">Jupitron</span> has been making games from <span class="kw">Buenos Aires</span> for more than a decade. The catalog now holds <span class="kw">100+ titles</span>: precision platformers, reflex tests, pinball-physics adventures, and other ideas shaped by <span class="kw">experimentation</span>.</p><p>These games have taken shape over the years with many talented people, blending <span class="kw">gameplay, art, sound, and music</span> on each project. <span class="kw">Power Solenoid</span> is the latest adventure: a bigger cosmic journey that still keeps the install-and-play spirit. Each game\u2019s credits tell the full story.</p>',
       works_label: 'Selected works',
       work_fighting: 'Fighting',
       work_platformer: 'Platformer',
@@ -1539,20 +1618,29 @@
   }
   document.querySelectorAll('.marquee-wrap').forEach(setupMarquee);
 
-  // ---- Logo glitch: random brief flash behind the signature, 4 variants ----
+  // ---- Logo glitch: random brief flash + temporary old-logo swap ----
   if (!reduceMotion){
     var glitchEl = document.querySelector('.glitch-bg');
-    if (glitchEl){
+    var signatureWrap = document.querySelector('.signature-wrap');
+    if (glitchEl || signatureWrap){
       var glitchFx = ['fx-1', 'fx-2', 'fx-3', 'fx-4', 'fx-5', 'fx-8'];
       var triggerGlitch = function(){
-        var cls = glitchFx[Math.floor(Math.random() * glitchFx.length)];
-        glitchEl.classList.remove('fx-1', 'fx-2', 'fx-3', 'fx-4', 'fx-5', 'fx-8');
-        void glitchEl.offsetWidth; // force reflow so the animation restarts
-        glitchEl.classList.add(cls);
-        glitchEl.addEventListener('animationend', function done(){
-          glitchEl.classList.remove(cls);
-          glitchEl.removeEventListener('animationend', done);
-        });
+        if (glitchEl){
+          var cls = glitchFx[Math.floor(Math.random() * glitchFx.length)];
+          glitchEl.classList.remove('fx-1', 'fx-2', 'fx-3', 'fx-4', 'fx-5', 'fx-8');
+          void glitchEl.offsetWidth; // force reflow so the animation restarts
+          glitchEl.classList.add(cls);
+          glitchEl.addEventListener('animationend', function done(){
+            glitchEl.classList.remove(cls);
+            glitchEl.removeEventListener('animationend', done);
+          });
+        }
+        if (signatureWrap){
+          signatureWrap.classList.remove('logo-swap');
+          void signatureWrap.offsetWidth;
+          signatureWrap.classList.add('logo-swap');
+          setTimeout(function(){ signatureWrap.classList.remove('logo-swap'); }, 620);
+        }
         scheduleGlitch();
       };
       var scheduleGlitch = function(){
