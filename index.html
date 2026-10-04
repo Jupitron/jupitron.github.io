@@ -6,8 +6,8 @@
 <title id="doc-title">Jupitron - Video games Forever.</title>
 <meta id="doc-desc" name="description" content="Jupitron — desarrollador de videojuegos independiente, Buenos Aires. +100 juegos lanzados. Power Solenoid, ya disponible en Steam. Catálogo completo en itch.io y Newgrounds.">
 
-<meta property="og:title" content="Jupitron — Desarrollador de Videojuegos">
-<meta property="og:description" content="Enviando videojuegos al planeta tierra.">
+<meta id="og-title" property="og:title" content="Jupitron — Desarrollador de Videojuegos">
+<meta id="og-description" property="og:description" content="Enviando videojuegos al planeta tierra.">
 <meta property="og:image" content="header.jpg">
 <meta property="og:url" content="https://www.jupitron.com.ar">
 <meta property="og:type" content="website">
@@ -40,6 +40,22 @@
     font-family: 'Inter', sans-serif;
     -webkit-font-smoothing: antialiased;
     position: relative;
+  }
+
+  html[lang^="ja"] body{
+    font-family: 'Inter', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', Meiryo, sans-serif;
+  }
+
+  html[lang^="zh"] body{
+    font-family: 'Inter', 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif;
+  }
+
+  html[lang^="hi"] body{
+    font-family: 'Inter', 'Noto Sans Devanagari', 'Mangal', 'Nirmala UI', sans-serif;
+  }
+
+  html[lang^="ko"] body{
+    font-family: 'Inter', 'Apple SD Gothic Neo', 'Malgun Gothic', 'Noto Sans KR', sans-serif;
   }
 
   body::before{
@@ -100,6 +116,20 @@
     background: var(--accent);
   }
   .lang-switch .sep{ color: var(--hair); }
+
+  @media (max-width: 600px){
+    .lang-switch{
+      top: 10px;
+      right: 10px;
+      gap: 3px;
+      padding: 6px 5px;
+    }
+    .lang-switch button{
+      padding: 3px 3px;
+      font-size: 0.62rem;
+    }
+    .lang-switch .sep{ font-size: 0.58rem; }
+  }
 
   .version-trigger{
     position: fixed;
@@ -892,12 +922,22 @@
 </head>
 <body>
 
-<nav class="lang-switch" aria-label="Language selector">
+<nav class="lang-switch" data-i18n-aria="aria_language" aria-label="Selector de idioma">
   <button type="button" data-lang="es" class="active" aria-pressed="true">ES</button>
   <span class="sep">/</span>
   <button type="button" data-lang="pt" aria-pressed="false">PT</button>
   <span class="sep">/</span>
   <button type="button" data-lang="en" aria-pressed="false">EN</button>
+  <span class="sep">/</span>
+  <button type="button" data-lang="ja" aria-pressed="false">JA</button>
+  <span class="sep">/</span>
+  <button type="button" data-lang="it" aria-pressed="false">IT</button>
+  <span class="sep">/</span>
+  <button type="button" data-lang="zh" aria-pressed="false">ZH</button>
+  <span class="sep">/</span>
+  <button type="button" data-lang="hi" aria-pressed="false">HI</button>
+  <span class="sep">/</span>
+  <button type="button" data-lang="ko" aria-pressed="false">KO</button>
 </nav>
 
 <div class="version-trigger" aria-hidden="true"></div>
@@ -915,7 +955,7 @@
   <div class="hero-rule"></div>
   <p class="tagline" data-i18n="tagline">Videojuegos para siempre.</p>
 
-  <nav class="social-row" aria-label="Redes sociales">
+  <nav class="social-row" data-i18n-aria="aria_social" aria-label="Redes sociales">
     <a class="icon-btn" href="https://x.com/jupitron" target="_blank" rel="noopener noreferrer" data-i18n-aria="aria_x" aria-label="Jupitron en X">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 4l16 16M20 4L4 20"/></svg>
     </a>
@@ -934,7 +974,7 @@
   </nav>
 </header>
 
-<p class="site-version" id="site-version" aria-hidden="true">v1.008</p>
+<p class="site-version" id="site-version" aria-hidden="true">v1.010</p>
 
 <main class="wrap">
 
@@ -961,7 +1001,7 @@
         </li>
         <li>
           <a class="list-link" href="https://jupitron.itch.io/the-klent" target="_blank" rel="noopener noreferrer"><span class="work-title">The Klent — Episode 1</span><span>2024</span></a>
-          <span class="work-credit"><span data-i18n="for_word">para</span> <a class="collab-bubble" href="https://ludumdare.com/" target="_blank" rel="noopener noreferrer">Ludum Dare</a></span>
+          <span class="work-credit" data-i18n-html="credit_klent"><span data-i18n="for_word">para</span> <a class="collab-bubble" href="https://ludumdare.com/" target="_blank" rel="noopener noreferrer">Ludum Dare</a></span>
         </li>
         <li>
           <a class="list-link" href="https://jupitron.itch.io/pamp" target="_blank" rel="noopener noreferrer"><span class="work-title">Pamp!</span><span>2023</span></a>
@@ -969,7 +1009,7 @@
         </li>
         <li>
           <a class="list-link" href="https://jupitron.itch.io/super-sepu-land" target="_blank" rel="noopener noreferrer"><span class="work-title">Super Sepu Land</span><span>2022</span></a>
-          <span class="work-credit">Yes, <a class="collab-bubble" href="https://www.instagram.com/robosepu?igsh=Mng0YndzYnczZ2N3" target="_blank" rel="noopener noreferrer">Robosepu</a></span>
+          <span class="work-credit" data-i18n-html="credit_sepu">Yes, <a class="collab-bubble" href="https://www.instagram.com/robosepu?igsh=Mng0YndzYnczZ2N3" target="_blank" rel="noopener noreferrer">Robosepu</a></span>
         </li>
         <li>
           <a class="list-link" href="https://jupitron.itch.io/miguelito-y-su-mundo-profundo" target="_blank" rel="noopener noreferrer"><span class="work-title">Miguelito y un mundo profundo</span><span>2021</span></a>
@@ -1119,7 +1159,7 @@
 </div>
 
 <footer>
-  <nav class="social-row" aria-label="Redes sociales">
+  <nav class="social-row" data-i18n-aria="aria_social" aria-label="Redes sociales">
     <a class="icon-btn" href="https://x.com/jupitron" target="_blank" rel="noopener noreferrer" data-i18n-aria="aria_x" aria-label="Jupitron en X">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 4l16 16M20 4L4 20"/></svg>
     </a>
@@ -1145,6 +1185,7 @@
   document.getElementById('year').textContent = new Date().getFullYear();
 
   // ---- i18n ----
+  var activeLang = 'es';
   var I18N = {
     es: {
       docTitle: 'Jupitron - Video games Forever.',
@@ -1182,7 +1223,15 @@
       youtube_soon: 'Próximamente',
       with_word: 'con',
       and_word: 'y',
-      for_word: 'para'
+      for_word: 'para',
+      aria_language: 'Selector de idioma',
+      aria_social: 'Redes sociales',
+      credit_klent: 'para <a class="collab-bubble" href="https://ludumdare.com/" target="_blank" rel="noopener noreferrer">Ludum Dare</a>',
+      credit_sepu: 'Sí, <a class="collab-bubble" href="https://www.instagram.com/robosepu?igsh=Mng0YndzYnczZ2N3" target="_blank" rel="noopener noreferrer">Robosepu</a>',
+      easter_close: 'Cerrar',
+      easter_body_1: 'Jupitron es un desarrollador excepcional. No solo por lo prolífico de su obra, sino además por destacarse en todas las áreas de la realización de un videojuego: gameplay, gráficos, sonidos, música. Su visible amor por la experimentación tiñe todo su trabajo de una originalidad y una onda difíciles de igualar.',
+      easter_body_2: 'Lo conozco desde hace varios años, pero cada vez que veo algo nuevo suyo me sorprendo y me cuesta asociar que el ser humano que tengo enfrente (cuando nos encontramos personalmente) sea el mismo que hace todas esas cosas. Y, además, las hace bien. Imagino que tiene que ver con su inmensa humildad.',
+      easter_sig: '— Hernán Sáez'
     },
     pt: {
       docTitle: 'Jupitron - Video games Forever.',
@@ -1220,7 +1269,15 @@
       youtube_soon: 'Em breve',
       with_word: 'com',
       and_word: 'e',
-      for_word: 'para'
+      for_word: 'para',
+      aria_language: 'Seletor de idioma',
+      aria_social: 'Redes sociais',
+      credit_klent: 'para <a class="collab-bubble" href="https://ludumdare.com/" target="_blank" rel="noopener noreferrer">Ludum Dare</a>',
+      credit_sepu: 'Sim, <a class="collab-bubble" href="https://www.instagram.com/robosepu?igsh=Mng0YndzYnczZ2N3" target="_blank" rel="noopener noreferrer">Robosepu</a>',
+      easter_close: 'Fechar',
+      easter_body_1: 'Jupitron é um desenvolvedor excepcional. Não apenas pela produtividade de sua obra, mas também por se destacar em todas as áreas da criação de um videogame: gameplay, gráficos, sons e música. Seu amor visível pela experimentação dá a tudo o que faz uma originalidade e uma personalidade difíceis de igualar.',
+      easter_body_2: 'Conheço Jupitron há vários anos, mas toda vez que vejo algo novo seu fico surpreso e tenho dificuldade de ligar a pessoa que está diante de mim (quando nos encontramos pessoalmente) à mesma pessoa capaz de fazer tantas coisas. E, além disso, fazê-las bem. Imagino que isso tenha a ver com sua imensa humildade.',
+      easter_sig: '— Hernán Sáez'
     },
     en: {
       docTitle: 'Jupitron - Video games Forever.',
@@ -1258,7 +1315,245 @@
       youtube_soon: 'Coming soon',
       with_word: 'with',
       and_word: 'and',
-      for_word: 'for'
+      for_word: 'for',
+      aria_language: 'Language selector',
+      aria_social: 'Social links',
+      credit_klent: 'for <a class="collab-bubble" href="https://ludumdare.com/" target="_blank" rel="noopener noreferrer">Ludum Dare</a>',
+      credit_sepu: 'Yes, <a class="collab-bubble" href="https://www.instagram.com/robosepu?igsh=Mng0YndzYnczZ2N3" target="_blank" rel="noopener noreferrer">Robosepu</a>',
+      easter_close: 'Close',
+      easter_body_1: 'Jupitron is an exceptional developer. Not only because of the sheer volume of the work, but also because of how well he stands out across every part of making a videogame: gameplay, graphics, sound, and music. His visible love of experimentation gives everything he makes an originality and energy that are hard to match.',
+      easter_body_2: 'I have known him for several years, but every time I see something new from him I am surprised, and I struggle to connect the person in front of me (when we meet in person) with the same human being who makes all those things. And, on top of that, makes them well. I imagine it has something to do with his immense humility.',
+      easter_sig: '— Hernán Sáez'
+    },
+    ja: {
+      docTitle: 'Jupitron — ビデオゲームは永遠に。',
+      docDesc: 'Jupitron — ブエノスアイレスを拠点とするインディーゲーム開発者。100本以上のゲームをリリース。Power SolenoidはSteamで配信中。全カタログはitch.ioとNewgroundsで公開。',
+      htmlLang: 'ja',
+      eyebrow_hero: 'ゲーム開発者 — アルゼンチン、ブエノスアイレス',
+      tagline: 'ビデオゲームは永遠に。',
+      about_bio: '<p><span class="kw">アーケード</span>時代の申し子、<span class="jp-glitch">Jupitron</span>は<span class="kw">ブエノスアイレス</span>を拠点に、10年以上にわたってゲームを作り続けています。カタログには<span class="kw">100本以上のタイトル</span>が並びます。精密なプラットフォーマー、反射神経を試すゲーム、ピンボール物理のアドベンチャーなど、実験精神から形になったアイデアたちです。</p><p>一つひとつのゲームは、<span class="kw">ゲームプレイ、アート、サウンド、音楽</span>にまたがるアイデアと制作が、何年もかけて形になったものです。<span class="kw">Power Solenoid</span>は最新の冒険作。規模の大きな宇宙の旅でありながら、「インストールして、すぐ遊ぶ」精神はそのままです。それぞれのゲームのクレジットに、すべての物語があります。</p>',
+      works_label: '主な作品',
+      work_fighting: '格闘',
+      work_platformer: 'プラットフォーマー',
+      work_browser: 'ブラウザ',
+      work_pinball: 'ピンボール',
+      work_rhythm: 'リズム',
+      section_latest: 'Steamで配信中',
+      press_label: 'レビュー：',
+      section_catalog: '全カタログ',
+      catalog_count: '100本以上のゲーム',
+      feature_eyebrow: 'Power Solenoid — アクション / アドベンチャー',
+      feature_category: 'アクション / アドベンチャー',
+      feature_body: 'Grand Palaceの重力に翻弄されるピンボール世界を、サングラス好きの異次元旅行者Rockhoundとして跳ね回ろう。個性豊かな18ステージ、7つのボス戦、道中で手に入る宇宙仕様の装備が待っています。',
+      btn_steam: 'Steamで見る',
+      itch_desc: 'パック、プロトタイプ、リリース',
+      ng_desc: 'はじまりから続くアーカイブ',
+      aria_x: 'JupitronのX',
+      aria_ig: 'JupitronのInstagram',
+      aria_mail: 'Jupitronにメールを送る',
+      aria_bandcamp: 'JupitronのBandcamp',
+      section_music: 'Bandcamp — オリジナルゲーム音楽',
+      music_count: '5作品',
+      aria_youtube: 'JupitronのYouTube',
+      section_youtube: 'YouTube',
+      youtube_count: '予告編とドキュメンタリー',
+      youtube_desc: '開発記録、舞台裏、Jupitronのゲームにまつわるドキュメンタリー。',
+      youtube_soon: '近日公開',
+      with_word: '共同制作：',
+      and_word: '＆',
+      for_word: '向け',
+      aria_language: '言語選択',
+      aria_social: 'ソーシャルリンク',
+      credit_klent: '<a class="collab-bubble" href="https://ludumdare.com/" target="_blank" rel="noopener noreferrer">Ludum Dare</a>向け',
+      credit_sepu: 'はい、<a class="collab-bubble" href="https://www.instagram.com/robosepu?igsh=Mng0YndzYnczZ2N3" target="_blank" rel="noopener noreferrer">Robosepu</a>',
+      easter_close: '閉じる',
+      easter_body_1: 'Jupitronは並外れたゲーム開発者です。作品数の多さだけでなく、ゲームプレイ、グラフィック、サウンド、音楽まで、ゲーム制作のあらゆる分野で際立っています。実験を愛する姿勢が、他ではなかなか真似できない独創性と魅力を作品全体に与えています。',
+      easter_body_2: '何年も前から知っていますが、新作を見るたびに驚かされます。目の前にいる人（実際に会ったとき）と、これほど多くのことを、しかも見事にやってのける人が同一人物だとは、なかなか結びつきません。きっと、あの大きな謙虚さのおかげなのでしょう。',
+      easter_sig: '— Hernán Sáez'
+    },
+    it: {
+      docTitle: 'Jupitron — Videogiochi per sempre.',
+      docDesc: 'Jupitron — sviluppatore indipendente di videogiochi con base a Buenos Aires. Oltre 100 giochi pubblicati. Power Solenoid è disponibile su Steam. Catalogo completo su itch.io e Newgrounds.',
+      htmlLang: 'it',
+      eyebrow_hero: 'Sviluppatore di videogiochi — Buenos Aires, Argentina',
+      tagline: 'Videogiochi per sempre.',
+      about_bio: '<p>Figlio adottivo dell’era <span class="kw">arcade</span>, <span class="jp-glitch">Jupitron</span> crea giochi da oltre un decennio partendo da <span class="kw">Buenos Aires</span>. Il catalogo conta ormai <span class="kw">oltre 100 titoli</span>: platform, prove di riflessi, avventure con fisica da flipper e altre idee che prendono forma attraverso la <span class="kw">sperimentazione</span>.</p><p>Ogni gioco ha preso forma negli anni, attraverso idee e lavoro tra <span class="kw">gameplay, arte, suono e musica</span>. <span class="kw">Power Solenoid</span> è l’avventura più recente: un viaggio cosmico più grande, senza perdere lo spirito del “installa e gioca”. I crediti di ogni gioco raccontano la storia completa.</p>',
+      works_label: 'Opere selezionate',
+      work_fighting: 'Picchiaduro',
+      work_platformer: 'Platform',
+      work_browser: 'Browser',
+      work_pinball: 'Flipper',
+      work_rhythm: 'Ritmo',
+      section_latest: 'Uscita su Steam',
+      press_label: 'Recensione di',
+      section_catalog: 'Catalogo completo',
+      catalog_count: 'Oltre 100 giochi',
+      feature_eyebrow: 'Power Solenoid — Azione / Avventura',
+      feature_category: 'Azione / Avventura',
+      feature_body: 'Attraversa rimbalzando i mondi dalla fisica da flipper di Grand Palace nei panni di Rockhound, un viaggiatore interdimensionale con un debole per gli occhiali da sole. Diciotto livelli pieni di stile, sette scontri con i boss e un intero guardaroba cosmico lungo il cammino.',
+      btn_steam: 'Vedi su Steam',
+      itch_desc: 'Raccolte, prototipi e uscite',
+      ng_desc: 'L’archivio, dall’inizio',
+      aria_x: 'Jupitron su X',
+      aria_ig: 'Jupitron su Instagram',
+      aria_mail: 'Scrivi a Jupitron',
+      aria_bandcamp: 'Jupitron su Bandcamp',
+      section_music: 'Musica originale per videogiochi su Bandcamp',
+      music_count: '5 uscite',
+      aria_youtube: 'Jupitron su YouTube',
+      section_youtube: 'YouTube',
+      youtube_count: 'Trailer e documentari',
+      youtube_desc: 'Devlog, dietro le quinte e documentari sui giochi di Jupitron.',
+      youtube_soon: 'Prossimamente',
+      with_word: 'con',
+      and_word: 'e',
+      for_word: 'per',
+      aria_language: 'Selettore della lingua',
+      aria_social: 'Social',
+      credit_klent: 'per <a class="collab-bubble" href="https://ludumdare.com/" target="_blank" rel="noopener noreferrer">Ludum Dare</a>',
+      credit_sepu: 'Sì, <a class="collab-bubble" href="https://www.instagram.com/robosepu?igsh=Mng0YndzYnczZ2N3" target="_blank" rel="noopener noreferrer">Robosepu</a>',
+      easter_close: 'Chiudi',
+      easter_body_1: 'Jupitron è uno sviluppatore eccezionale. Non solo per la prolificità del suo lavoro, ma anche perché si distingue in ogni area della creazione di un videogioco: gameplay, grafica, suoni e musica. Il suo evidente amore per la sperimentazione dà a tutto ciò che fa un’originalità e una personalità difficili da eguagliare.',
+      easter_body_2: 'Lo conosco da diversi anni, ma ogni volta che vedo qualcosa di nuovo mi sorprende; faccio fatica a collegare la persona che ho davanti (quando ci incontriamo di persona) con quella capace di fare tutte queste cose. E, per di più, di farle bene. Immagino dipenda dalla sua immensa umiltà.',
+      easter_sig: '— Hernán Sáez'
+    },
+    zh: {
+      docTitle: 'Jupitron — 电子游戏永远不散场。',
+      docDesc: 'Jupitron——来自布宜诺斯艾利斯的独立游戏开发者。已发布100多款游戏。Power Solenoid现已在Steam上线。完整目录见itch.io和Newgrounds。',
+      htmlLang: 'zh-Hans',
+      eyebrow_hero: '游戏开发者 — 阿根廷布宜诺斯艾利斯',
+      tagline: '电子游戏永远不散场。',
+      about_bio: '<p><span class="kw">街机</span>时代的孩子，<span class="jp-glitch">Jupitron</span>在<span class="kw">布宜诺斯艾利斯</span>制作游戏已有十多年。如今，目录里已有<span class="kw">100多款作品</span>：精准平台游戏、反应力挑战、带弹珠台物理的冒险，以及更多在<span class="kw">实验</span>中成形的想法。</p><p>每款游戏都在多年的<span class="kw">游戏玩法、美术、音效与音乐</span>创作中逐渐成形。<span class="kw">Power Solenoid</span>是最新的冒险作：一次规模更大的宇宙之旅，同时保留“安装即玩”的精神。每款游戏的制作名单讲述着完整的故事。</p>',
+      works_label: '精选作品',
+      work_fighting: '格斗',
+      work_platformer: '平台跳跃',
+      work_browser: '浏览器',
+      work_pinball: '弹珠台',
+      work_rhythm: '节奏',
+      section_latest: 'Steam新作',
+      press_label: '评测：',
+      section_catalog: '完整目录',
+      catalog_count: '100多款游戏',
+      feature_eyebrow: 'Power Solenoid — 动作 / 冒险',
+      feature_category: '动作 / 冒险',
+      feature_body: '在Grand Palace重力扭曲的弹珠台世界里，以Rockhound的身份一路弹跳前进——这位跨维度旅行者对太阳镜情有独钟。18个风格鲜明的关卡、7场首领战，以及沿途一整套宇宙装备。',
+      btn_steam: '前往Steam',
+      itch_desc: '合集、原型与正式作品',
+      ng_desc: '从最初开始的档案',
+      aria_x: 'Jupitron的X',
+      aria_ig: 'Jupitron的Instagram',
+      aria_mail: '给Jupitron发邮件',
+      aria_bandcamp: 'Jupitron的Bandcamp',
+      section_music: 'Bandcamp上的原创电子游戏音乐',
+      music_count: '5张作品',
+      aria_youtube: 'Jupitron的YouTube',
+      section_youtube: 'YouTube',
+      youtube_count: '预告片与纪录片',
+      youtube_desc: '开发日志、幕后花絮，以及关于Jupitron游戏的纪录片。',
+      youtube_soon: '即将推出',
+      with_word: '合作：',
+      and_word: '和',
+      for_word: '面向',
+      aria_language: '语言选择',
+      aria_social: '社交链接',
+      credit_klent: '为 <a class="collab-bubble" href="https://ludumdare.com/" target="_blank" rel="noopener noreferrer">Ludum Dare</a>制作',
+      credit_sepu: '没错，<a class="collab-bubble" href="https://www.instagram.com/robosepu?igsh=Mng0YndzYnczZ2N3" target="_blank" rel="noopener noreferrer">Robosepu</a>',
+      easter_close: '关闭',
+      easter_body_1: 'Jupitron是一位非凡的开发者。不仅作品数量惊人，而且在电子游戏制作的每个领域——游戏玩法、画面、音效、音乐——都十分出色。他对实验的热爱，让他的作品始终拥有难以复制的独创性和气质。',
+      easter_body_2: '我认识他很多年了，但每次看到他的新作品还是会感到惊讶。很难把我面对的这个人（我们当面见到时）和那个能做出这么多事情、而且都做得很好的创作者联系起来。我想，这大概和他极大的谦逊有关。',
+      easter_sig: '— Hernán Sáez'
+    },
+    hi: {
+      docTitle: 'Jupitron — वीडियो गेम्स हमेशा के लिए।',
+      docDesc: 'Jupitron — ब्यूनस आयर्स के स्वतंत्र गेम डेवलपर। 100 से अधिक गेम जारी। Power Solenoid अब Steam पर उपलब्ध है। पूरा कैटलॉग itch.io और Newgrounds पर।',
+      htmlLang: 'hi',
+      eyebrow_hero: 'गेम डेवलपर — ब्यूनस आयर्स, अर्जेंटीना',
+      tagline: 'वीडियो गेम्स हमेशा के लिए।',
+      about_bio: '<p><span class="kw">आर्केड</span> दौर की संतान, <span class="jp-glitch">Jupitron</span> एक दशक से अधिक समय से <span class="kw">ब्यूनस आयर्स</span> से गेम बना रहा है। कैटलॉग में अब <span class="kw">100 से अधिक गेम</span> हैं: सटीक प्लेटफ़ॉर्मर, रिफ़्लेक्स टेस्ट, पिनबॉल-फ़िज़िक्स वाले रोमांच और <span class="kw">प्रयोग</span> से आकार लेने वाले कई और विचार।</p><p>हर गेम ने वर्षों के दौरान <span class="kw">गेमप्ले, कला, साउंड और संगीत</span> से जुड़े विचारों और काम के ज़रिए अपना रूप पाया है। <span class="kw">Power Solenoid</span> सबसे नया रोमांच है: एक बड़ी ब्रह्मांडीय यात्रा, जिसमें “इंस्टॉल करो और खेलो” वाली भावना बरकरार है। हर गेम के क्रेडिट्स पूरी कहानी बताते हैं।</p>',
+      works_label: 'चुनिंदा गेम्स',
+      work_fighting: 'फाइटिंग',
+      work_platformer: 'प्लेटफ़ॉर्मर',
+      work_browser: 'ब्राउज़र',
+      work_pinball: 'पिनबॉल',
+      work_rhythm: 'रिदम',
+      section_latest: 'Steam पर नया रिलीज़',
+      press_label: 'समीक्षा:',
+      section_catalog: 'पूरा कैटलॉग',
+      catalog_count: '100+ गेम्स',
+      feature_eyebrow: 'Power Solenoid — एक्शन / एडवेंचर',
+      feature_category: 'एक्शन / एडवेंचर',
+      feature_body: 'Grand Palace की गुरुत्वाकर्षण से बदलती पिनबॉल दुनिया में Rockhound बनकर उछलते हुए आगे बढ़ें—एक अंतर-आयामी यात्री जिसे शानदार धूप के चश्मों का शौक है। 18 स्टाइलिश लेवल, 7 बॉस लड़ाइयाँ और रास्ते भर ब्रह्मांडीय गियर का पूरा वार्डरोब।',
+      btn_steam: 'Steam पर देखें',
+      itch_desc: 'बंडल, प्रोटोटाइप और रिलीज़',
+      ng_desc: 'शुरुआत से अब तक का आर्काइव',
+      aria_x: 'Jupitron का X',
+      aria_ig: 'Jupitron का Instagram',
+      aria_mail: 'Jupitron को ईमेल भेजें',
+      aria_bandcamp: 'Jupitron का Bandcamp',
+      section_music: 'Bandcamp पर मूल वीडियो गेम संगीत',
+      music_count: '5 रिलीज़',
+      aria_youtube: 'Jupitron का YouTube',
+      section_youtube: 'YouTube',
+      youtube_count: 'ट्रेलर और डॉक्यूमेंट्री',
+      youtube_desc: 'डेवब्लॉग, पर्दे के पीछे की झलकियाँ और Jupitron के गेम्स पर डॉक्यूमेंट्री।',
+      youtube_soon: 'जल्द आ रहा है',
+      with_word: 'के साथ',
+      and_word: 'और',
+      for_word: 'के लिए',
+      aria_language: 'भाषा चयन',
+      aria_social: 'सोशल लिंक',
+      credit_klent: '<a class="collab-bubble" href="https://ludumdare.com/" target="_blank" rel="noopener noreferrer">Ludum Dare</a> के लिए',
+      credit_sepu: 'हाँ, <a class="collab-bubble" href="https://www.instagram.com/robosepu?igsh=Mng0YndzYnczZ2N3" target="_blank" rel="noopener noreferrer">Robosepu</a>',
+      easter_close: 'बंद करें',
+      easter_body_1: 'Jupitron एक असाधारण डेवलपर है। सिर्फ़ अपने काम की मात्रा की वजह से नहीं, बल्कि वीडियो गेम बनाने के हर हिस्से—गेमप्ले, ग्राफ़िक्स, साउंड और संगीत—में अलग पहचान बनाने के कारण भी। प्रयोग के प्रति उसका साफ़ प्रेम उसके हर काम में ऐसी मौलिकता और ऊर्जा भरता है जिसकी बराबरी करना मुश्किल है।',
+      easter_body_2: 'मैं उसे कई वर्षों से जानता हूँ, लेकिन हर बार उसकी कोई नई चीज़ देखता हूँ तो हैरान रह जाता हूँ। मेरे सामने मौजूद इंसान (जब हम आमने-सामने मिलते हैं) और इतनी सारी चीज़ें, वह भी इतनी अच्छी तरह, बनाने वाले व्यक्ति को एक ही मानना अब भी मुश्किल लगता है। शायद इसका संबंध उसकी अपार विनम्रता से है।',
+      easter_sig: '— Hernán Sáez'
+    },
+    ko: {
+      docTitle: 'Jupitron — 비디오게임은 영원히.',
+      docDesc: 'Jupitron — 부에노스아이레스 기반의 인디 게임 개발자. 100개 이상의 게임을 출시했습니다. Power Solenoid는 Steam에서 지금 플레이할 수 있습니다. 전체 카탈로그는 itch.io와 Newgrounds에서 확인하세요.',
+      htmlLang: 'ko',
+      eyebrow_hero: '게임 개발자 — 아르헨티나 부에노스아이레스',
+      tagline: '비디오게임은 영원히.',
+      about_bio: '<p><span class="kw">아케이드</span> 시대의 아이, <span class="jp-glitch">Jupitron</span>은 <span class="kw">부에노스아이레스</span>에서 10년 넘게 게임을 만들어 왔습니다. 카탈로그에는 이제 <span class="kw">100개가 넘는 타이틀</span>이 있습니다. 정밀한 플랫폼 게임, 반사신경 테스트, 핀볼 물리 어드벤처, 그리고 <span class="kw">실험</span>을 통해 형태를 얻은 여러 아이디어가 담겨 있습니다.</p><p>각 게임은 수년에 걸쳐 <span class="kw">게임플레이, 아트, 사운드, 음악</span>에 대한 아이디어와 작업이 쌓여 만들어졌습니다. <span class="kw">Power Solenoid</span>는 가장 최근의 모험입니다. 더 커진 우주 여행이지만 “설치하고 바로 플레이하는” 정신은 그대로입니다. 각 게임의 크레딧이 전체 이야기를 들려줍니다.</p>',
+      works_label: '주요 작품',
+      work_fighting: '대전 격투',
+      work_platformer: '플랫폼',
+      work_browser: '브라우저',
+      work_pinball: '핀볼',
+      work_rhythm: '리듬',
+      section_latest: 'Steam 출시작',
+      press_label: '리뷰:',
+      section_catalog: '전체 카탈로그',
+      catalog_count: '100개 이상의 게임',
+      feature_eyebrow: 'Power Solenoid — 액션 / 어드벤처',
+      feature_category: '액션 / 어드벤처',
+      feature_body: '중력으로 뒤틀린 Grand Palace의 핀볼 세계를 Rockhound가 되어 튕겨 다녀 보세요. 선글라스를 좋아하는 차원 간 여행자입니다. 개성 넘치는 18개 스테이지, 7번의 보스전, 그리고 여정 내내 만나는 우주 장비 컬렉션이 기다립니다.',
+      btn_steam: 'Steam에서 보기',
+      itch_desc: '번들, 프로토타입 & 출시작',
+      ng_desc: '처음부터 이어진 아카이브',
+      aria_x: 'Jupitron의 X',
+      aria_ig: 'Jupitron의 Instagram',
+      aria_mail: 'Jupitron에게 이메일 보내기',
+      aria_bandcamp: 'Jupitron의 Bandcamp',
+      section_music: 'Bandcamp 오리지널 비디오게임 음악',
+      music_count: '5개 발매작',
+      aria_youtube: 'Jupitron의 YouTube',
+      section_youtube: 'YouTube',
+      youtube_count: '트레일러 & 다큐멘터리',
+      youtube_desc: '개발일지, 비하인드 신, Jupitron 게임 다큐멘터리.',
+      youtube_soon: '곧 공개',
+      with_word: '공동 제작:',
+      and_word: '&',
+      for_word: '용',
+      aria_language: '언어 선택',
+      aria_social: '소셜 링크',
+      credit_klent: '<a class="collab-bubble" href="https://ludumdare.com/" target="_blank" rel="noopener noreferrer">Ludum Dare</a>용',
+      credit_sepu: '맞아요, <a class="collab-bubble" href="https://www.instagram.com/robosepu?igsh=Mng0YndzYnczZ2N3" target="_blank" rel="noopener noreferrer">Robosepu</a>',
+      easter_close: '닫기',
+      easter_body_1: 'Jupitron은 뛰어난 개발자입니다. 작품의 양이 많은 것뿐만 아니라 게임플레이, 그래픽, 사운드, 음악 등 게임 제작의 모든 분야에서 두각을 드러냅니다. 실험을 향한 분명한 애정이 그의 모든 작업에 따라 하기 힘든 독창성과 에너지를 더합니다.',
+      easter_body_2: 'Jupitron을 몇 년째 알고 지냈지만, 새로운 작업을 볼 때마다 놀랍니다. 눈앞의 사람(직접 만났을 때)과 이 모든 일을, 그것도 훌륭하게 해내는 사람이 같은 사람이라는 사실을 연결하기가 여전히 어렵습니다. 아마도 그의 대단한 겸손함 때문일 겁니다.',
+      easter_sig: '— Hernán Sáez'
     }
   };
 
@@ -1269,6 +1564,9 @@
     document.documentElement.lang = dict.htmlLang;
     document.getElementById('doc-title').textContent = dict.docTitle;
     document.getElementById('doc-desc').setAttribute('content', dict.docDesc);
+    document.getElementById('og-title').setAttribute('content', dict.docTitle);
+    document.getElementById('og-description').setAttribute('content', dict.docDesc);
+    activeLang = lang;
 
     document.querySelectorAll('[data-i18n]').forEach(function(el){
       var key = el.getAttribute('data-i18n');
@@ -1294,8 +1592,21 @@
     btn.addEventListener('click', function(){ setLang(btn.getAttribute('data-lang')); });
   });
 
-  // Argentina Spanish is the default on every load.
-  setLang('es');
+  function detectLanguage(){
+    var languages = [];
+    if (navigator.languages && navigator.languages.length){
+      for (var j = 0; j < navigator.languages.length; j++) languages.push(navigator.languages[j]);
+    }
+    if (navigator.language) languages.push(navigator.language);
+    for (var i = 0; i < languages.length; i++){
+      var code = String(languages[i]).toLowerCase().split('-')[0];
+      if (I18N[code]) return code;
+    }
+    return 'es';
+  }
+
+  // Start in the visitor's preferred device language; Spanish is the site fallback.
+  setLang(detectLanguage());
 
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (!reduceMotion && 'IntersectionObserver' in window){
@@ -1555,14 +1866,15 @@
 
     function openEasterEgg(){
       if (document.querySelector('.easter-overlay')) return;
+      var copy = I18N[activeLang] || I18N.es;
       var overlay = document.createElement('div');
       overlay.className = 'easter-overlay';
       overlay.innerHTML =
         '<div class="easter-modal">' +
-          '<button type="button" class="easter-close" aria-label="Cerrar">\u00d7</button>' +
-          '<p>Jupitron es un desarrollador excepcional. No solo por lo prol\u00edfico de su obra, sino adem\u00e1s por destacarse en todas las \u00e1reas de la realizaci\u00f3n de un videojuego: gameplay, gr\u00e1ficos, sonidos, m\u00fasica. Su visible amor por la experimentaci\u00f3n ti\u00f1e todo su trabajo de una originalidad y una onda dif\u00edciles de igualar.</p>' +
-          '<p>Lo conozco desde hace varios a\u00f1os, pero cada vez que veo algo nuevo suyo me sorprendo y me cuesta asociar que el ser humano que tengo enfrente (cuando nos encontramos personalmente) sea el mismo que hace todas esas cosas. Y, adem\u00e1s, las hace bien. Imagino que tiene que ver con su inmensa humildad.</p>' +
-          '<p class="easter-sig">\u2014 Hern\u00e1n S\u00e1ez</p>' +
+          '<button type="button" class="easter-close" aria-label="' + copy.easter_close + '">\u00d7</button>' +
+          '<p>' + copy.easter_body_1 + '</p>' +
+          '<p>' + copy.easter_body_2 + '</p>' +
+          '<p class="easter-sig">' + copy.easter_sig + '</p>' +
         '</div>';
       document.body.appendChild(overlay);
       requestAnimationFrame(function(){ overlay.classList.add('is-visible'); });
